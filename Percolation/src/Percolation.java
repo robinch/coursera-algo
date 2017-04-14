@@ -3,9 +3,18 @@ import edu.princeton.cs.algs4.StdStats;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+/**
+ * This is my solution to the Percolation problem
+ *
+ * Some remarks. The index will start from 1 due to convention.
+ *
+ * @author Robin Chowdhury
+ */
 public class Percolation {
 
-    public Percolation() {
+    public Percolation(int n) {
+        if (n <= 0) throw new IllegalArgumentException ();
+
     }
 
     // open site (row, col) if it is not open already
