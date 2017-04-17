@@ -143,16 +143,4 @@ public class Percolation {
     private void validateIndice(int i) {
         if ((i <= 0) || i > mSiteMatrixSize) throw new IndexOutOfBoundsException();
     }
-
-    public static void main(String[] args) {
-        Percolation p = new Percolation(1);
-
-        System.out.println("is 1, 1 open?" + p.isOpen(1,1));
-        System.out.println("percolates: " + p.percolates());
-        p.open(1, 1);
-        System.out.println("open 1,1");
-
-        System.out.println("is 1, 1 open?" + p.isOpen(1,1));
-        System.out.println("percolates: " + p.percolates());
-    }
 }
