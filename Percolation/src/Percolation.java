@@ -135,12 +135,12 @@ public class Percolation {
         return mSiteMatrixSize * (row - 1) + col;
     }
 
-    private void validateIndices(int i, int j) {
-        validateIndice(i);
-        validateIndice(j);
+    private void validateIndices(int row, int col) {
+        validateIndex(row);
+        validateIndex(col);
     }
 
-    private void validateIndice(int i) {
+    private void validateIndex(int i) {
         if ((i <= 0) || i > mSiteMatrixSize) throw new IndexOutOfBoundsException();
     }
 }
