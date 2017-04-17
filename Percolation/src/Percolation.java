@@ -29,7 +29,7 @@ public class Percolation {
         mSiteMatrixSize = n;
 
         initializeGrid(n);
-        initializeUF(n);
+        initializeUF(n * n + 2); // all sites + virtual top and bottom
     }
 
 
@@ -43,8 +43,8 @@ public class Percolation {
         }
     }
 
-    private void initializeUF(int n) {
-        mUF = new QuickFindUF(n + 2);
+    private void initializeUF(int size) {
+        mUF = new QuickFindUF(size);
     }
 
     // open site (row, col) if it is not open already
