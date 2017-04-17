@@ -3,9 +3,9 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 /**
  * This is my solution to the Percolation problem
  *
- * Some remarks. The index will start from 1 due to convention.
- *
  * @author Robin Chowdhury
+ * @date 2017-04-17
+ *
  */
 public class Percolation {
 
@@ -18,7 +18,6 @@ public class Percolation {
     private int mNrOfOpenSites;
 
     public Percolation(int n) {
-        // Should be O(n^2)
         if (n <= 0) throw new IllegalArgumentException();
 
         mNrOfOpenSites = 0;
@@ -47,8 +46,12 @@ public class Percolation {
         mUF = new WeightedQuickUnionUF(size);
     }
 
-    // open site (row, col) if it is not open already
-    void open(int row, int col) {
+    /**
+     * Opens the site if it's not already opened
+     * @param row
+     * @param col
+     */
+    public void open(int row, int col) {
         validateIndices(row, col);
 
         if (isOpen(row, col)) return;
@@ -92,7 +95,12 @@ public class Percolation {
         }
     }
 
-    // is site (row, col) open?
+    /**
+     * Checks if the site is open
+     * @param row
+     * @param col
+     * @return true if site is open otherwise false
+     */
     public boolean isOpen(int row, int col) {
         validateIndices(row, col);
 
@@ -103,19 +111,32 @@ public class Percolation {
         return mOpenSiteMatrix[convertToJavaIndex(col)][convertToJavaIndex(row)];
     }
 
-    // is site (row, col) full?
+    /**
+     * See if the given site is full.
+     * Full means that the site is connected to an opened site on the top layer
+     * @param row
+     * @param col
+     * @return
+     */
     public boolean isFull(int row, int col) {
         validateIndices(row, col);
 
         return mUF.connected(mTopSiteIndex, xyTo1D(row, col));
     }
 
-    // number of open sites
+
+    /**
+     *
+     * @return number of opened sites
+     */
     public int numberOfOpenSites() {
         return mNrOfOpenSites;
     }
 
-    // does the system percolate?
+    /**
+     * It percolates if there are opened sites that connects the top with the bottom layer
+     * @return returns true if it percolates otherwise false;
+     */
     public boolean percolates() {
         return mUF.connected(mTopSiteIndex, mBottomSiteIndex);
     }
