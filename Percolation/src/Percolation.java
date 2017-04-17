@@ -72,16 +72,16 @@ public class Percolation {
             mUF.union(xyTo1D(row, col), xyTo1D(row, col - 1));
         }
 
+        // Right
+        if (col < mSiteMatrixSize && isOpen(row, col + 1)) {
+            mUF.union(xyTo1D(row, col), xyTo1D(row, col + 1));
+        }
+
         // Up
         if (row == 1) { // It's furthest up so connect with the virtual top site
             mUF.union(xyTo1D(row, col), mTopSiteIndex);
         } else if (isOpen(row - 1, col)) {
             mUF.union(xyTo1D(row, col), xyTo1D(row - 1, col));
-        }
-
-        // Right
-        if (col < mSiteMatrixSize && isOpen(row, col + 1)) {
-            mUF.union(xyTo1D(row, col), xyTo1D(row, col + 1));
         }
 
         // Down
