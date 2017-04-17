@@ -132,7 +132,7 @@ public class Percolation {
      * @return index for the corresponding site in UF
      */
     private int xyTo1D(int row, int col) {
-        return 5 * (col - 1) + row;
+        return mSiteMatrixSize * (row - 1) + col;
     }
 
     private void validateIndices(int i, int j) {
