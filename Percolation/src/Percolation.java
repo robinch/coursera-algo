@@ -1,4 +1,4 @@
-import edu.princeton.cs.algs4.QuickFindUF;
+import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 /**
  * This is my solution to the Percolation problem
@@ -10,7 +10,7 @@ import edu.princeton.cs.algs4.QuickFindUF;
 public class Percolation {
 
     private int mSiteMatrixSize;
-    private QuickFindUF mUF;
+    private WeightedQuickUnionUF mUF;
     private int mTopSiteIndex;
     private int mBottomSiteIndex;
 
@@ -44,7 +44,7 @@ public class Percolation {
     }
 
     private void initializeUF(int size) {
-        mUF = new QuickFindUF(size);
+        mUF = new WeightedQuickUnionUF(size);
     }
 
     // open site (row, col) if it is not open already
