@@ -141,6 +141,6 @@ public class Percolation {
     }
 
     private void validateIndex(int i) {
-        if ((i <= 0) || i > mSiteMatrixSize) throw new IndexOutOfBoundsException();
+        if (i <= 0 || i > mSiteMatrixSize) throw new IndexOutOfBoundsException("index i out of bounds");
     }
 }
